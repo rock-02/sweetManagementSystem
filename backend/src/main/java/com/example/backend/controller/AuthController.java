@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.backend.config.jwtProvider;
+import com.example.backend.dtos.AuthResponse;
 import com.example.backend.dtos.LoginRequest;
 import com.example.backend.entities.User;
-import com.example.backend.response.AuthResponse;
 import com.example.backend.services.CustomUserService;
 
 @RestController
