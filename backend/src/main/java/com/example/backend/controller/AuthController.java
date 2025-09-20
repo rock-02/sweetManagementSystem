@@ -1,5 +1,6 @@
 package com.example.backend.controller;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ import com.example.backend.dtos.AuthResponse;
 import com.example.backend.dtos.LoginRequest;
 import com.example.backend.entities.User;
 import com.example.backend.services.CustomUserService;
+import com.example.backend.services.UserService;
 
 @RestController
 @RequestMapping("/auth")
@@ -34,6 +36,9 @@ public class AuthController {
 
     @Autowired
     private CustomUserService customUserService;
+
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/")
     public String home() {
@@ -66,19 +71,23 @@ public class AuthController {
 
         String token = jwtProvider.generateToken(authentication);
 
-        AuthResponse authResponse = new AuthResponse(token, "User registered successfully");
+        Set<String> roles = savedUser.getRoles();
+
+        AuthResponse authResponse = new AuthResponse(token, "User registered successfully", new ArrayList<>(roles));
 
         return ResponseEntity.status(HttpStatus.CREATED).body(authResponse);
     }
 
     @PostMapping("/login")
-    public ResponseEntity<AuthResponse> LoginUser(@RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<AuthResponse> LoginUser(@RequestBody LoginRequest loginRequest) throws Exception {
 
         Authentication authentication = authentication(loginRequest.getEmail(), loginRequest.getPassword());
 
         String token = jwtProvider.generateToken(authentication);
 
-        AuthResponse authResponse = new AuthResponse(token, "User logged in successfully");
+        Set<String> roles = userService.findUserByEmail(loginRequest.getEmail()).getRoles();
+
+        AuthResponse authResponse = new AuthResponse(token, "User logged in successfully", new ArrayList<>(roles));
 
         return ResponseEntity.status(HttpStatus.OK).body(authResponse);
 

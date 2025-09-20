@@ -1,0 +1,305 @@
+/* Dashboard.css */
+
+/* General Body and Container Styling */
+body {
+  background-color: #f3f4f6; /* bg-gray-100 */
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Delete button on each card */
+.delete-button {
+  margin-top: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition-property: background-color, transform;
+  transition-duration: 200ms;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: #ef4444; /* A vivid red color */
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  width: 100%; /* Makes the button full-width */
+}
+
+.delete-button:hover {
+  background-color: #dc2626; /* A darker red on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px -1px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.delete-button:active {
+  transform: translateY(0);
+}
+
+/* Create Sweet Button */
+.create-button {
+  padding: 0.5rem 1.5rem;
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500; /* font-medium */
+  color: #ffffff;
+  background-color: #2563eb; /* A nice blue color */
+  border-radius: 0.5rem; /* rounded-lg */
+  transition-property: background-color;
+  transition-duration: 200ms;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+  border: none;
+  cursor: pointer;
+}
+
+.create-button:hover {
+  background-color: #1d4ed8; /* A darker blue on hover */
+}
+/* Update button on each card */
+.update-button {
+  margin-top: 0.5rem; /* Adds some space between the buttons */
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition-property: background-color, transform;
+  transition-duration: 200ms;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: #4b5563; /* A dark gray color */
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  width: 100%; /* Makes the button full-width */
+}
+
+.update-button:hover {
+  background-color: #374151;
+  transform: translateY(-2px); /* Adds a subtle lift effect */
+  box-shadow: 0 6px 10px -1px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.update-button:active {
+  transform: translateY(0); /* Pushes the button down on click */
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header Styling */
+.header {
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* shadow-sm */
+}
+
+.header-content {
+  max-width: 72rem; /* max-w-6xl */
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.5rem;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .header-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.header h1 {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 700; /* font-bold */
+  color: #1f2937; /* text-gray-800 */
+  letter-spacing: -0.025em; /* tracking-tight */
+}
+
+.filter-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* gap-3 */
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .filter-controls {
+    flex-direction: row;
+    gap: 1rem; /* sm:gap-4 */
+    width: auto;
+  }
+}
+
+.filter-input {
+  padding: 0.5rem;
+  border-width: 1px;
+  border-color: #d1d5db; /* border-gray-300 */
+  border-radius: 0.5rem; /* rounded-lg */
+  font-size: 0.875rem; /* text-sm */
+  transition-property: border-color, box-shadow;
+  transition-duration: 200ms;
+}
+
+.filter-input:focus {
+  outline: none;
+  border-color: #4f46e5; /* ring-indigo-500 */
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.5); /* ring-2 */
+}
+
+.logout-button {
+  padding: 0.5rem 1.5rem; /* px-6 py-2 */
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500; /* font-medium */
+  color: #ffffff;
+  background-color: #dc2626; /* bg-red-600 */
+  border-radius: 0.5rem; /* rounded-lg */
+  transition-property: background-color;
+  transition-duration: 200ms;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+}
+
+.logout-button:hover {
+  background-color: #b91c1c; /* hover:bg-red-700 */
+}
+
+/* Main Content and Card Grid */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+}
+
+.sweet-grid {
+  max-width: 72rem; /* max-w-6xl */
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem; /* gap-8 */
+}
+
+@media (min-width: 640px) {
+  .sweet-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .sweet-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Individual Sweet Card */
+.sweet-card {
+  width: 100%;
+  max-width: 24rem;
+  background-color: #ffffff;
+  border-radius: 0.75rem; /* rounded-xl */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+  transition-property: box-shadow;
+  transition-duration: 300ms;
+  padding: 1.5rem; /* p-6 */
+  display: flex;
+  flex-direction: column;
+}
+
+.sweet-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04); /* hover:shadow-xl */
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 700; /* font-bold */
+  color: #111827; /* text-gray-900 */
+  line-height: 1.2;
+}
+
+.category-tag {
+  font-size: 0.75rem; /* text-xs */
+  padding: 0.25rem 0.75rem; /* px-3 py-1 */
+  background-color: #e5e7eb; /* bg-gray-100 */
+  border-width: 1px;
+  border-color: #e5e7eb; /* border-gray-200 */
+  border-radius: 9999px; /* rounded-full */
+  color: #4b5563; /* text-gray-600 */
+  font-weight: 500; /* font-medium */
+}
+
+.sweet-price {
+  color: #374151; /* text-gray-700 */
+  font-weight: 700; /* font-bold */
+  font-size: 1.25rem; /* text-xl */
+  margin-bottom: 0.25rem;
+}
+
+.sweet-stock {
+  font-size: 0.875rem; /* text-sm */
+  color: #6b7280; /* text-gray-500 */
+  margin-bottom: 1.5rem;
+}
+
+.sweet-stock span {
+  font-weight: 600; /* font-semibold */
+}
+
+.sweet-stock .out-of-stock {
+  color: #dc2626; /* text-red-600 */
+}
+
+.purchase-button {
+  margin-top: auto;
+  padding: 0.75rem 1.5rem; /* px-6 py-3 */
+  border-radius: 0.5rem; /* rounded-lg */
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 600; /* font-semibold */
+  transition-property: background-color;
+  transition-duration: 200ms;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow */
+}
+
+.purchase-button.available {
+  background-color: #4f46e5; /* bg-indigo-600 */
+  color: #ffffff;
+}
+
+.purchase-button.available:hover {
+  background-color: #4338ca; /* hover:bg-indigo-700 */
+}
+
+.purchase-button.disabled {
+  background-color: #e5e7eb; /* bg-gray-200 */
+  color: #6b7280; /* text-gray-500 */
+  cursor: not-allowed;
+}
+
+.no-sweets-found {
+  grid-column: span 3 / span 3; /* col-span-full */
+  text-align: center;
+  color: #6b7280; /* text-gray-500 */
+  font-size: 1rem; /* text-base */
+  padding: 2.5rem 0; /* py-10 */
+}

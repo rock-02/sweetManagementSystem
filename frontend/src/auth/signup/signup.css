@@ -1,0 +1,91 @@
+.one_Signup_Signup-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin-top: 2rem;
+  padding: 0 20px; /* Add padding to ensure spacing on smaller screens */
+}
+
+.one_Signup_row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px; /* Optional: max width to limit the row width */
+}
+
+.one_Signup_col {
+  flex: 1;
+  padding: 0 15px;
+  min-width: 300px; /* Ensure columns don't get too narrow */
+}
+
+.one_Signup_vision-text {
+  width: 100%;
+}
+
+.one_Signup_vision-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh; /* Set a fixed height for the container */
+  width: 100%;
+}
+
+.one_Signup_vision-image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.one_Signup_one_myform {
+  border-radius: 15px;
+  padding: 20px 20px;
+  max-width: 500px;
+  min-height: 400px;
+  margin: 0 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  margin-top: 30px;
+}
+
+.one_Signup_one_myform div {
+  margin: 10px 0;
+}
+
+.one_Signup_inputi,
+.one_Signup_one_myform select {
+  width: 100%;
+  padding: 10px 7px;
+  border: none;
+  background-color: #f0f0f0; /* Light gray background color */
+  border-radius: 5px;
+  margin-bottom: 10px;
+  user-select: none;
+}
+
+.one_Signup_btn {
+  background-color: #13036f;
+  font-size: 16px;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  user-select: none;
+  width: 100%;
+  padding: 10px 7px;
+}
+
+.one_Signup_btn:hover {
+  background-color: #c59e05;
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.one_Signup_image_col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Ensure the image column takes the full width */
+}
