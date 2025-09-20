@@ -1,11 +1,8 @@
 package com.example.backend.entities;
 
-import java.util.Date;
+import java.util.Set;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,18 +13,22 @@ import lombok.NoArgsConstructor;
 @Data
 public class User {
 
-    // Assuming User class has some fields, getters, and setters
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @jakarta.persistence.Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String email;
 
     private String name;
 
-    // @JsonIgnore
     private String password;
+
+    // ✅ Store roles as a collection of strings
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"))
+    @Column(name = "role")
+    private Set<String> roles;
 
 
 }

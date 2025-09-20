@@ -1,5 +1,7 @@
 package com.example.backend.controller;
 
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -53,6 +55,9 @@ public class AuthController {
         newUser.setName(user.getName());
         newUser.setEmail(user.getEmail());
         newUser.setPassword(passwordEncoder.encode(user.getPassword()));
+
+        // newUser.setRoles(Set.of("USER", "ADMIN"));
+        newUser.setRoles(Set.of("USER"));
 
         User savedUser = userRepository.save(newUser);
 
